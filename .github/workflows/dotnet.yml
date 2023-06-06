@@ -21,7 +21,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Build
-      run: dotnet build  --configuration Release src\QuickRotate.sln
+      run: dotnet build  --configuration Release src\RotateDisplay.sln
    # - name: Test
     #  run: dotnet test --no-build --verbosity normal
     - name: Upload artifact
