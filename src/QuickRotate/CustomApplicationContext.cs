@@ -22,7 +22,7 @@ namespace QuickRotate
 		// uncomment all code related to _mainForm, if we ever want to display more GUI
 		//private Form1? _mainForm;
 
-		private System.ComponentModel.IContainer components = null;
+		private System.ComponentModel.IContainer? components = null;
 
 		public CustomApplicationContext()
 		{
