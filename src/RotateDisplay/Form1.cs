@@ -56,7 +56,7 @@ namespace RotateDisplay
 			//Shell shellObject = new Shell();
 			//shellObject.ToggleDesktop();
 
-			// alternaive method which does not need a additional reference
+			// alternative method which does not need a additional reference
 			IntPtr lHwnd = FindWindow("Shell_TrayWnd", null);
 			SendMessage(lHwnd, WM_COMMAND, (IntPtr)MIN_ALL, IntPtr.Zero);
 			//System.Threading.Thread.Sleep(2000);
