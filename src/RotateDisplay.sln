@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotateDisplay", "RotateDisplay\RotateDisplay.csproj", "{45C54EF3-73DC-4854-A9F4-F51F5BB9345D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickRotate", "QuickRotate\QuickRotate.csproj", "{613E78BC-4D2A-4AF7-B23F-CDB779EA74B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotateDisplayLib", "RotateDisplayLib\RotateDisplayLib.csproj", "{CDF7C903-785B-4DD1-9FCC-6A72B3333CCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45C54EF3-73DC-4854-A9F4-F51F5BB9345D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C54EF3-73DC-4854-A9F4-F51F5BB9345D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C54EF3-73DC-4854-A9F4-F51F5BB9345D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C54EF3-73DC-4854-A9F4-F51F5BB9345D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{613E78BC-4D2A-4AF7-B23F-CDB779EA74B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{613E78BC-4D2A-4AF7-B23F-CDB779EA74B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{613E78BC-4D2A-4AF7-B23F-CDB779EA74B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{613E78BC-4D2A-4AF7-B23F-CDB779EA74B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDF7C903-785B-4DD1-9FCC-6A72B3333CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDF7C903-785B-4DD1-9FCC-6A72B3333CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDF7C903-785B-4DD1-9FCC-6A72B3333CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDF7C903-785B-4DD1-9FCC-6A72B3333CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35214443-C5EF-4F6A-AF74-9548AAB9AC39}
+	EndGlobalSection
+EndGlobal
