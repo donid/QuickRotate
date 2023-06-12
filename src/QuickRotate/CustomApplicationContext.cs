@@ -34,7 +34,9 @@ namespace QuickRotate
 			_notifyIcon.ContextMenuStrip = new ContextMenuStrip(components);
 			_notifyIcon.ContextMenuStrip.Opening += ContextMenuStrip_Opening;
 			_notifyIcon.ContextMenuStrip.MouseLeave += ContextMenuStrip_MouseLeave;
-			_notifyIcon.Click += _notifyIcon_Click;
+			//_notifyIcon.Click += _notifyIcon_Click;
+			_notifyIcon.MouseDoubleClick += _notifyIcon_MouseDoubleClick;
+			_notifyIcon.MouseClick += _notifyIcon_Click;
 
 			Image? img = null;
 
@@ -48,6 +50,36 @@ namespace QuickRotate
 			_notifyIcon.ContextMenuStrip.Items.Add("&Exit", img, exitItem_Click);
 
 		}
+
+		private RotationClockwise CalculateNewRotation(RotationClockwise oldRotation)
+		{
+			if (oldRotation == RotationClockwise.Deg0)
+			{
+				return RotationClockwise.Deg90;
+			}
+			return RotationClockwise.Deg0;
+		}
+
+		private void _notifyIcon_MouseDoubleClick(object? sender, MouseEventArgs e)
+		{
+			_notifyIcon.ContextMenuStrip.Close();// MouseClick-event seems to be sent always / first
+			RotationClockwise oldRotation;
+			try
+			{
+				oldRotation = PrimaryScreenRotator.GetCurrentRotation();
+			}
+			catch (InvalidOperationException ex)
+			{
+				ToastContentBuilder toastBuilder = new ToastContentBuilder()
+					.AddText($"Querying current rotation failed:")
+					.AddText(ex.Message);
+				toastBuilder.Show(); // Not seeing the Show() method? Make sure you have version 7.0, and if you're using .NET 6 (or later), then your TFM must be net6.0-windows10.0.17763.0 or greater
+				return;
+			}
+			RotationClockwise newRotation = CalculateNewRotation(oldRotation);
+			RotateDisplay(newRotation);
+		}
+
 		private void showDesktop_Click(object? sender, EventArgs e)
 		{
 			//Shell objShel = new Shell32.ShellClass();
@@ -134,7 +166,7 @@ namespace QuickRotate
 
 		private void showHelpItem_Click(object? sender, EventArgs e)
 		{
-			MessageBox.Show("QuickRotate App by donid" + Environment.NewLine + "V1.0", "QuickRotate");
+			MessageBox.Show("QuickRotate App by donid" + Environment.NewLine + "V1.1", "QuickRotate");
 		}
 
 		private void exitItem_Click(object? sender, EventArgs e)

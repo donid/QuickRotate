@@ -16,6 +16,17 @@ namespace RotateDisplayLib
 
 	public class PrimaryScreenRotator
 	{
+		public static RotationClockwise GetCurrentRotation()
+		{
+			DEVMODE dm = DEVMODE.Create();
+
+			if (0 == NativeMethods.EnumDisplaySettings(null, NativeMethods.ENUM_CURRENT_SETTINGS, ref dm))
+			{
+				throw new InvalidOperationException("Failed to enumerate display settings.");
+			}
+
+			return DmdoToRotationClockwise(dm.dmDisplayOrientation);
+		}
 
 		public static string Rotate(RotationClockwise rotation)
 		{
@@ -71,6 +82,24 @@ namespace RotateDisplayLib
 					throw new ArgumentException("Unknown value for rotation");
 			}
 		}
+
+		private static RotationClockwise DmdoToRotationClockwise(DMDO rotation)
+		{
+			switch (rotation)
+			{
+				case DMDO.DMDO_DEFAULT:
+					return RotationClockwise.Deg0;
+				case DMDO.DMDO_90:
+					return RotationClockwise.Deg270;
+				case DMDO.DMDO_180:
+					return RotationClockwise.Deg180;
+				case DMDO.DMDO_270:
+					return RotationClockwise.Deg90;
+				default:
+					throw new ArgumentException("Unknown value for rotation");
+			}
+		}
+
 
 		private static void SwapWidthAndHeight(ref DEVMODE dm)
 		{

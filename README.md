@@ -14,4 +14,9 @@ QuickRotate does not require any installation / setup (but it requires the .Net 
 This project also provides the class library *RotateDisplayLib* which can be used in
 PowerShell scripts or in your own .Net application.
 
+**V1.1**
+
+Double-click on the tray icon now rotates the screen, too.
+(Unfortunately I haven't found out how to prevent the short flicker of the context menu, yet)
+
 [![.NET](https://github.com/donid/QuickRotate/actions/workflows/dotnet.yml/badge.svg)](https://github.com/donid/QuickRotate/actions/workflows/dotnet.yml)
