@@ -33,6 +33,7 @@
 			button180Deg = new Button();
 			button270Deg = new Button();
 			buttonShowDesktop = new Button();
+			buttonTurnScreensOff = new Button();
 			SuspendLayout();
 			// 
 			// buttonDefault
@@ -77,7 +78,7 @@
 			// 
 			// buttonShowDesktop
 			// 
-			buttonShowDesktop.Location = new Point(167, 78);
+			buttonShowDesktop.Location = new Point(12, 84);
 			buttonShowDesktop.Name = "buttonShowDesktop";
 			buttonShowDesktop.Size = new Size(131, 23);
 			buttonShowDesktop.TabIndex = 4;
@@ -85,11 +86,22 @@
 			buttonShowDesktop.UseVisualStyleBackColor = true;
 			buttonShowDesktop.Click += buttonShowDesktop_Click;
 			// 
+			// buttonTurnScreensOff
+			// 
+			buttonTurnScreensOff.Location = new Point(149, 84);
+			buttonTurnScreensOff.Name = "buttonTurnScreensOff";
+			buttonTurnScreensOff.Size = new Size(160, 23);
+			buttonTurnScreensOff.TabIndex = 5;
+			buttonTurnScreensOff.Text = "TurnScreensOffAndOn";
+			buttonTurnScreensOff.UseVisualStyleBackColor = true;
+			buttonTurnScreensOff.Click += buttonTurnScreensOff_Click;
+			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(456, 119);
+			Controls.Add(buttonTurnScreensOff);
 			Controls.Add(buttonShowDesktop);
 			Controls.Add(button270Deg);
 			Controls.Add(button180Deg);
@@ -107,5 +119,6 @@
 		private Button button180Deg;
 		private Button button270Deg;
 		private Button buttonShowDesktop;
+		private Button buttonTurnScreensOff;
 	}
 }

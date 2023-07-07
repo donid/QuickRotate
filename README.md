@@ -1,3 +1,6 @@
+
+[![.NET](https://github.com/donid/QuickRotate/actions/workflows/dotnet.yml/badge.svg)](https://github.com/donid/QuickRotate/actions/workflows/dotnet.yml)
+
 # QuickRotate
 
 QuickRotate is a small utility that shows an icon in the taskbar notification area (system tray) of
@@ -19,4 +22,14 @@ PowerShell scripts or in your own .Net application.
 Double-click on the tray icon now rotates the screen, too.
 (Unfortunately I haven't found out how to prevent the short flicker of the context menu, yet)
 
-[![.NET](https://github.com/donid/QuickRotate/actions/workflows/dotnet.yml/badge.svg)](https://github.com/donid/QuickRotate/actions/workflows/dotnet.yml)
+**Lib-Update 7/2023**
+
+No changes in QuickRotate, but *RotateDisplayLib* has been renamed to *ScreenSettingsLib* because new methods have been added:
+
+- TurnScreensOff
+- TurnScreensOn
+- TurnScreensOnAlternative
+- ShowDesktop
+- UndoShowDesktop
+
+Additionally, the lib's project-type has been changed from NetStandard20 to multi-targeting

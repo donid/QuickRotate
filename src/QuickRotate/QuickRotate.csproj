@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RotateDisplayLib\RotateDisplayLib.csproj" />
+    <ProjectReference Include="..\ScreenSettingsLib\ScreenSettingsLib.csproj" />
   </ItemGroup>
 
   <ItemGroup>

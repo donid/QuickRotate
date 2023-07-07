@@ -1,7 +1,7 @@
 using System;
 
 
-namespace RotateDisplayLib
+namespace ScreenSettingsLib
 {
 	/// <summary>
 	/// This specifies how the windows desktop will be displayed, when you don't move/rotate your pysical screen from its default angle.

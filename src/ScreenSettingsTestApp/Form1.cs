@@ -1,8 +1,7 @@
-using System.Runtime.InteropServices;
 
 using Microsoft.Toolkit.Uwp.Notifications;
 
-using RotateDisplayLib;
+using ScreenSettingsLib;
 
 
 
@@ -48,28 +47,15 @@ namespace RotateDisplay
 
 		private void buttonShowDesktop_Click(object sender, EventArgs e)
 		{
-			//needs reference to C:\Windows\System32\Shell32.dll
-			//Shell32.ShellClass objShel = new Shell32.ShellClass();
-			//objShel.ToggleDesktop();
-
-			// untested: Add COM reference to "Microsoft Shell Controls and Automation"
-			//Shell shellObject = new Shell();
-			//shellObject.ToggleDesktop();
-
-			// alternative method which does not need a additional reference
-			IntPtr lHwnd = FindWindow("Shell_TrayWnd", null);
-			SendMessage(lHwnd, WM_COMMAND, (IntPtr)MIN_ALL, IntPtr.Zero);
-			//System.Threading.Thread.Sleep(2000);
-			//SendMessage(lHwnd, WM_COMMAND, (IntPtr)MIN_ALL_UNDO, IntPtr.Zero);
+			ScreenSettings.ShowDesktop();
 		}
 
-		[DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
-		private static extern IntPtr FindWindow(string lpClassName, string? lpWindowName);
-		[DllImport("user32.dll", EntryPoint = "SendMessage", SetLastError = true)]
-		private static extern IntPtr SendMessage(IntPtr hWnd, Int32 Msg, IntPtr wParam, IntPtr lParam);
 
-		private const int WM_COMMAND = 0x111;
-		private const int MIN_ALL = 419;
-		private const int MIN_ALL_UNDO = 416;
+		private void buttonTurnScreensOff_Click(object sender, EventArgs e)
+		{
+			ScreenSettings.TurnScreensOff();
+			Thread.Sleep(5000);
+			ScreenSettings.TurnScreensOn();
+		}
 	}
 }

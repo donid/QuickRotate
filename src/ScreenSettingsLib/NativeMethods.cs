@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 //using Vanara.PInvoke;
 
-namespace RotateDisplayLib
+namespace ScreenSettingsLib
 {
 	internal enum DMDO : int
 	{
@@ -66,7 +66,7 @@ namespace RotateDisplayLib
 	internal class NativeMethods
 	{
 		[DllImport("user32.dll")]
-		public static extern int EnumDisplaySettings(string deviceName, int modeNum, ref DEVMODE devMode);
+		public static extern int EnumDisplaySettings(string? deviceName, int modeNum, ref DEVMODE devMode);
 
 		[DllImport("user32.dll")]
 		public static extern int ChangeDisplaySettings(ref DEVMODE devMode, int flags);
