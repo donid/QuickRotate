@@ -101,7 +101,18 @@ namespace QuickRotate
 			ToastContentBuilder toastBuilder = new ToastContentBuilder()
 				.AddText($"Rotation to {rotation} - result:")
 				.AddText(result);
-			toastBuilder.Show(); // Not seeing the Show() method? Make sure you have version 7.0, and if you're using .NET 6 (or later), then your TFM must be net6.0-windows10.0.17763.0 or greater
+			try
+			{
+				// encountered NullReferenceException here after quickly rotating display twice
+				//   at Windows.UI.Notifications.ToastNotification..ctor(XmlDocument content)
+				//   at Microsoft.Toolkit.Uwp.Notifications.ToastContentBuilder.Show(CustomizeToast customize)
+				//   at Microsoft.Toolkit.Uwp.Notifications.ToastContentBuilder.Show()
+				toastBuilder.Show(); // Not seeing the Show() method? Make sure you have version 7.0, and if you're using .NET 6 (or later), then your TFM must be net6.0-windows10.0.17763.0 or greater
+			}
+			catch (NullReferenceException ex)
+			{
+				Trace.WriteLine("Error in RotateDisplay - toastBuilder.Show(): " + ex.Message);
+			}
 		}
 
 
@@ -160,7 +171,7 @@ namespace QuickRotate
 
 		private void showHelpItem_Click(object? sender, EventArgs e)
 		{
-			MessageBox.Show("QuickRotate App by donid" + Environment.NewLine + "V1.1", "QuickRotate");
+			MessageBox.Show("QuickRotate App by donid" + Environment.NewLine + "V1.2", "QuickRotate");
 		}
 
 		private void exitItem_Click(object? sender, EventArgs e)
