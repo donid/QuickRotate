@@ -1,8 +1,15 @@
 using System.Runtime.InteropServices;
+using System.Text;
+
+
+
+//using static Vanara.PInvoke.User32;
 //using Vanara.PInvoke;
 
 namespace ScreenSettingsLib
 {
+
+
 	internal enum DMDO : int
 	{
 		DMDO_DEFAULT = 0,
@@ -63,6 +70,7 @@ namespace ScreenSettingsLib
 	};
 
 
+
 	internal class NativeMethods
 	{
 		[DllImport("user32.dll")]
@@ -79,5 +87,14 @@ namespace ScreenSettingsLib
 		public const int DISP_CHANGE_SUCCESSFUL = 0;
 		public const int DISP_CHANGE_RESTART = 1;
 		public const int DISP_CHANGE_FAILED = -1;
+
+
+		// Vanara seems to be missing this overload
+		// and Vanara dependecies would make the lib harder to use in powershell
+		[DllImport(/*Lib.User32*/ "User32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+		[return: MarshalAs(UnmanagedType.Bool)]
+		internal static extern bool SystemParametersInfo(/*SPI*/uint uiAction, uint uiParam, int vParam, [Optional] /*SPIF*/ uint fWinIni);
+
+
 	}
 }

@@ -12,7 +12,7 @@ It was created for portable devices with a touch screen that have an unreliable
 rotation / orientation sensor which can be quite annoying. To activate it, just touch
 (left-click) the icon and the choose the rotation angle.
 
-QuickRotate does not require any installation / setup (but it requires the .Net 6 Runtime) - just run the .exe
+QuickRotate does not require any installation / setup (but it requires the .Net 8 Runtime) - just run the .exe
 
 This project also provides the class library *RotateDisplayLib* which can be used in
 PowerShell scripts or in your own .Net application.
@@ -21,6 +21,10 @@ PowerShell scripts or in your own .Net application.
 
 Double-click on the tray icon now rotates the screen, too.
 (Unfortunately I haven't found out how to prevent the short flicker of the context menu, yet)
+
+**Lib-Update 7/2024**
+
+Added MouseCursorSettings class, which allows to set the size of the mouse cursor (system-wide).
 
 **Lib-Update 7/2023**
 

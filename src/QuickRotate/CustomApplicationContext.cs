@@ -61,7 +61,7 @@ namespace QuickRotate
 
 		private void _notifyIcon_MouseDoubleClick(object? sender, MouseEventArgs e)
 		{
-			_notifyIcon.ContextMenuStrip.Close();// MouseClick-event seems to be sent always / first
+			_notifyIcon.ContextMenuStrip?.Close();// MouseClick-event seems to be sent always / first
 			RotationClockwise oldRotation;
 			try
 			{
@@ -118,12 +118,17 @@ namespace QuickRotate
 
 		private void ContextMenuStrip_MouseLeave(object? sender, EventArgs e)
 		{
-			_notifyIcon.ContextMenuStrip.Close();
+			_notifyIcon.ContextMenuStrip?.Close();
 		}
 
 		// show menu on left click - menu will not close when user clicks outside of menu
 		private void _notifyIcon_Click(object? sender, EventArgs e)
 		{
+			if (_notifyIcon.ContextMenuStrip == null)
+			{
+				return;
+			}
+
 			if (_notifyIcon.ContextMenuStrip.Visible == false)
 			{
 				_notifyIcon.ContextMenuStrip.Show(Control.MousePosition);
