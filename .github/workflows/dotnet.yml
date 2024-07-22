@@ -19,7 +19,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 8.0.x
     - name: Build
       run: dotnet build  --configuration Release src\RotateDisplay.sln
    # - name: Test
@@ -28,4 +28,4 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: upload debug-build artifacts
-        path: src\QuickRotate\bin\Release\net6.0-windows10.0.17763.0
+        path: src\QuickRotate\bin\Release\net8.0-windows10.0.17763.0
